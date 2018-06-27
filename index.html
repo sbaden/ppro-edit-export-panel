@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/styles.css"/>
+		<script src="js/libs/CSInterface-4.0.0.js"></script>
+		<script src="js/libs/jquery-1.9.1.js"></script>
+		<script src="js/main.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+	    <div class="container">
+			<div class="div-file-info">
+				<!-- <label id="input-title">Custom Sequence Name</label> -->
+				<input type="text" id="input-sequence-name" value="Custom Sequence Name">
+			</div>
+
+			<!-- PRESET DROPDOWN -->
+			<div class="div-btn">
+				<div class="dropdown2">
+					<div class="list"><a href="#">Export Presets<span class="sub-arrow"></span></a>
+						<ul id="preset-list"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="div-file-info">
+				<label id="preset-value"></label>
+			</div>
+
+			<div class="div-btn">
+				<button id="btn-refresh-preset">Refresh</button>
+			</div>
+			<hr class="divLine">
+
+
+			<!-- EXPORT PATH -->
+			<div class="div-btn">
+				<button id="btn-export-path">Select Export Path</button>
+			</div>
+			<div class="div-file-path">
+				<label id="export-path-value"></label>
+			</div>
+			<hr class="divLine">
+
+
+			<!-- PROCESS REQUEST -->
+			<div class="div-btn">
+				<button id="btn-process">Process</button>
+			</div>
+
+
+            
+
+
+
+
+		    <!-- TEMP BUTTON FOR DEVELOPMENT -->
+		    <!-- <div class="div-btn">
+		    	<button id='btn-reload'>Reload Panel</button>
+		    </div> -->
+
+
+		</div> <!-- END CONTAINER -->
+	</body>
+</html>

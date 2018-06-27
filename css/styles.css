@@ -1,0 +1,170 @@
+
+* {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 0.96em;
+	font-weight:200;
+	letter-spacing: .07em;
+	color:#757575;
+}
+    
+body {
+	background-color:#262626;
+}
+
+div {
+	margin-bottom: 5px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: nowrap;
+	margin: 10px;
+	height: 100%;
+	/*border-style: solid;
+	border-width: 1px;
+	border-color: red;*/
+}
+
+.div-file-info {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.div-file-path{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	overflow-wrap: break-word;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#input-sequence-name {
+	width: 80%;
+}
+
+.div-btn {
+	display: flex;
+	justify-content: center;
+	/*border-style: solid;
+	border-width: 1px;
+	border-color: red;*/
+}
+
+
+
+
+.dropdown2 {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	width: 80%;
+	align-items: center;
+	margin-top: 10px;
+	background-color: #1F1F1F;
+}
+.dropdown2 li {
+	list-style: none;
+}
+.dropdown2 a {
+	color: #0288D1;
+	text-decoration: none;
+	display: block;
+	padding: 10px 0 10px 20px;
+}
+.dropdown2 li a {
+	color: #fff;
+}
+.dropdown2 li a:hover {
+	color: #0288D1;
+}
+
+.dropdown2 ul {
+	display: none;
+}
+.dropdown2 div.tap ul {
+	display: block;
+}
+.dropdown2 div.tap .sub-arrow:after {
+	content: '\2039';
+}
+.dropdown2 .sub-arrow:after {
+	content: '\203A';
+	justify-content: flex-end;
+	/*float: right;*/
+	margin-left: 30px;
+	margin-top: 10px;
+	transform: rotate(90deg);
+	-webkit- transform: rotate(90deg);
+	-moz- transform: rotate(90deg);
+}
+
+
+
+
+
+#input-title {
+	margin-top: 0px;
+	/*font-weight: bold;*/
+}
+
+#preset-value {
+	/*font-size: .8em;*/
+}
+
+.divLine {
+	border-width: 1px;
+	border-color: #595959;
+	width:100%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+button {	
+	height: 34px;
+	width: 80%;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	border: 1px solid;
+	border-color: #1F1F1F;
+	border-radius: 2px;
+	color: #0288D1;
+	background-color: #1F1F1F;
+}
+
+
+#btn-refresh-preset {
+	width: 30%;
+}
+
+label {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+#reloadPanel {
+	background-color: #262626;
+	border-style: none;
+	margin-top: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
