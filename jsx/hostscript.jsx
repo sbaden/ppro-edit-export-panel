@@ -26,7 +26,7 @@ function parseObj(obj){
                 " to " + 
                 completeOutputPath + 
                 ".";
-            $.writeln(info);
+            // $.writeln(info);
 
             render(obj);
         }
@@ -97,6 +97,23 @@ function getPresetPath(){
     return JSON.stringify(preset);
 }
 
+function verifyDefaultPreset(obj){
+	var folder = new Folder (obj.presetsPath);
+    var files = folder.getFiles();
+    var presetDefaultFile = obj.presetValue + obj.presetExtension;
+    var valid = false;
+
+    for(i=0; i < files.length; i++){ // Loop through array looking for file types
+        var fileName = File.decode(files[i].name);
+        // alert(fileName);
+        if (fileName.toUpperCase() == presetDefaultFile.toUpperCase()){
+            return valid = true;
+        }
+        else{ valid = false; }
+    }
+    return valid;
+}
+
 function returnDirectory(){
 	var targetDirectory = Folder.selectDialog();  // Select a folder
                 
@@ -120,8 +137,6 @@ function returnActiveSequence(){
 }
 
 function getFiles(targetDirectory){
-	// var user = '/Users/' + system.userName;
-    // var folder = new Folder (user + targetDirectory);
     var folder = new Folder (targetDirectory);
     var files = folder.getFiles();
     var sortedFiles = [];
@@ -180,11 +195,11 @@ function render(obj) {
 						}
 					}
 
-					app.encoder.bind('onEncoderJobComplete',	onEncoderJobComplete);
+					// app.encoder.bind('onEncoderJobComplete',	onEncoderJobComplete);
 					app.encoder.bind('onEncoderJobError', 		onEncoderJobError);
-					app.encoder.bind('onEncoderJobProgress', 	onEncoderJobProgress);
+					// app.encoder.bind('onEncoderJobProgress', 	onEncoderJobProgress);
 					app.encoder.bind('onEncoderJobQueued', 		onEncoderJobQueued);
-					app.encoder.bind('onEncoderJobCanceled',	onEncoderJobCanceled);
+					// app.encoder.bind('onEncoderJobCanceled',	onEncoderJobCanceled);
 
 
 					// use these 0 or 1 settings to disable some/all metadata creation.
@@ -196,7 +211,7 @@ function render(obj) {
 															outPreset.fsName,
 															app.encoder.ENCODE_WORKAREA, 
 															1);	   // Remove from queue upon successful completion?					
-					message('jobID = ' + jobID);
+					// message('jobID = ' + jobID);
 					outPreset.close();
 				}
 			} else {

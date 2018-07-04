@@ -32,7 +32,8 @@ $(document).ready(function () {
             presetValue: '',
             presetExtension: '.epr',
             exportPath: '',
-            xmlPath: '/Users/sbaden/Desktop/XML/'   // HARDCODED LOCATION ON SERVER
+            xmlPath: '/Users/sbaden/Desktop/XML/',   // HARDCODED LOCATION ON SERVER
+            // xmlPath: '/Users/addison.coston/Desktop/XML/'
         }
 
 
@@ -83,33 +84,44 @@ $(document).ready(function () {
                 return;
             }
 
-            csInterface.evalScript('returnActiveSequence()', 
+            profileObj.presetValue = $('#preset-value').html();
+
+            csInterface.evalScript('verifyDefaultPreset('+ JSON.stringify(profileObj) +')',
                 function(result){
-                    var $customSeqName = $('#input-sequence-name').val();
-                    var $presetValue = $('#preset-value').html();
+                  
+                    if(result == 'true'){
+                        csInterface.evalScript('returnActiveSequence()', 
+                            function(result){
+                                var $customSeqName = $('#input-sequence-name').val();
+                                var $presetValue = $('#preset-value').html();
 
-                    profileObj.presetValue = $presetValue;
+                                profileObj.presetValue = $presetValue;
 
-                    switch($customSeqName){
-                        case 'Custom Sequence Name':
-                        case '':
-                        case null:
-                        case undefined:
-                            profileObj.sequenceName = result;
-                            break;
+                                switch($customSeqName){
+                                    case 'Custom Sequence Name':
+                                    case '':
+                                    case null:
+                                    case undefined:
+                                        profileObj.sequenceName = result;
+                                        break;
 
-                        default:
-                            profileObj.sequenceName = $.trim($customSeqName);
-                            break;
+                                    default:
+                                        profileObj.sequenceName = $.trim($customSeqName);
+                                        break;
+                                }
+
+                                // PASS OBJECT TO JSX
+                                csInterface.evalScript('parseObj(' + JSON.stringify(profileObj) + ')');
+
+                                // CLEAR CUSTOM SEQUENCE NAME - CLEAN UP
+                                $('#input-sequence-name').val('Custom Sequence Name');
+                            }
+                        );
                     }
-
-                    // PASS OBJECT TO JSX
-                    csInterface.evalScript('parseObj(' + JSON.stringify(profileObj) + ')');
-
-                    // CLEAR CUSTOM SEQUENCE NAME - CLEAN UP
-                    $('#input-sequence-name').val('Custom Sequence Name');
+                    else{ alert('The selected preset can not be found.'); }
                 }
             );
+
         }
 
 
@@ -123,10 +135,8 @@ $(document).ready(function () {
             csInterface.evalScript('getPresetPath()',
                 function(result){
                     result = JSON.parse(result);
-                    // alert(result.versionFolder);
 
                     if(result){
-                        // profileObj.presetsPath = '/Users/' + result + '/Documents/Adobe/Adobe Media Encoder/11.0/Presets/';
                         profileObj.presetsPath = '/Users/' + result.userName + '/Documents/Adobe/Adobe Media Encoder/' + result.versionFolder + '/Presets/';
 
                         csInterface.evalScript('getFiles('+ JSON.stringify(profileObj.presetsPath) +')',
