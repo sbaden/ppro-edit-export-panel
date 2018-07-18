@@ -315,7 +315,6 @@ function getDate(){
 }
 
 function getTime(){
-	// Get the time and format it  
 	var currentTime = new Date();  
 	var hours = currentTime.getHours();  
 	var minutes = currentTime.getMinutes();  
