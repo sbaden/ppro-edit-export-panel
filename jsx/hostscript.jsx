@@ -19,7 +19,14 @@ function parseObj(obj){
         var outputPath                  = obj.xmlPath;
 
         if (outputPath) {
-            var completeOutputPath = outputPath + getSep() + outputName + extention;
+			var dateStamp = getDate();
+			var timeStamp = getTime();
+
+			//create external folder in file structure if not already created.
+			var outputPath = outputPath + "/" + dateStamp;
+			if (! outputPath.exists) { Folder(outputPath).create(); }
+
+            var completeOutputPath = outputPath + getSep() + outputName + '_' + timeStamp + extention;
             app.project.activeSequence.exportAsFinalCutProXML(completeOutputPath, 1); // 1 == suppress UI
             var info = "Exported FCP XML for " + 
                 app.project.activeSequence.name + 
@@ -291,6 +298,35 @@ function updateEventPanel(message) {
 	//app.setSDKEventMessage('Here is some information.', 'info');
 	//app.setSDKEventMessage('Here is a warning.', 'warning');
 	//app.setSDKEventMessage('Here is an error.', 'error');  // Very annoying; use sparingly.
+}
+
+function getDate(){
+    var date = new Date();  
+    var d  = date.getDate();  
+    var day = (d < 10) ? '0' + d : d;  
+    var m = date.getMonth() + 1;  
+    var month = (m < 10) ? '0' + m : m;  
+    var yy = date.getYear();  
+    var year = (yy < 1000) ? yy + 1900 : yy;
+	var currentDate = year+month+day;
+    // alert(year+month+day);
+
+	return currentDate;
+}
+
+function getTime(){
+	// Get the time and format it  
+	var currentTime = new Date();  
+	var hours = currentTime.getHours();  
+	var minutes = currentTime.getMinutes();  
+	var seconds = currentTime.getSeconds();  
+
+	if (minutes < 10) minutes = "0" + minutes;  
+	if (seconds < 10) seconds = "0" + seconds;
+
+	var currentTime = hours.toString()+minutes.toString()+seconds.toString();
+
+	return currentTime;
 }
 
 
