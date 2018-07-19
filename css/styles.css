@@ -150,6 +150,8 @@ button {
 label {
 	margin-top: 10px;
 	margin-bottom: 5px;
+	font-size: 0.8em;
+	color: #995900;
 }
 
 #reloadPanel {
