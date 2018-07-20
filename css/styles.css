@@ -17,7 +17,7 @@ body {
 }
 
 div {
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }
 
 .container {
@@ -32,35 +32,22 @@ div {
 	border-color: red;*/
 }
 
-.div-file-info {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-items: center;
-}
-
-.div-file-path{
+.div-info{
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	justify-content: center;
 	overflow-wrap: break-word;
-	margin-right: 10px;
-	margin-left: 10px;
 }
 
 #input-sequence-name {
-	width: 80%;
+	margin-bottom: 10px;
+	width: 85%;
 }
 
 .div-btn {
 	display: flex;
 	justify-content: center;
-	/*border-style: solid;
-	border-width: 1px;
-	border-color: red;*/
 }
-
-
 
 
 .dropdown2 {
@@ -68,7 +55,7 @@ div {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
-	width: 80%;
+	width: 85%;
 	align-items: center;
 	margin-top: 10px;
 	background-color: #1F1F1F;
@@ -101,7 +88,6 @@ div {
 .dropdown2 .sub-arrow:after {
 	content: '\203A';
 	justify-content: flex-end;
-	/*float: right;*/
 	margin-left: 30px;
 	margin-top: 10px;
 	transform: rotate(90deg);
@@ -110,16 +96,9 @@ div {
 }
 
 
-
-
-
 #input-title {
 	margin-top: 0px;
 	/*font-weight: bold;*/
-}
-
-#preset-value {
-	/*font-size: .8em;*/
 }
 
 .divLine {
@@ -132,7 +111,7 @@ div {
 
 button {	
 	height: 34px;
-	width: 80%;
+	width: 85%;
 	margin-top: 10px;
 	margin-bottom: 0px;
 	border: 1px solid;
@@ -142,14 +121,14 @@ button {
 	background-color: #1F1F1F;
 }
 
-
 #btn-refresh-preset {
 	width: 30%;
 }
 
 label {
-	margin-top: 10px;
+	margin-top: 5px;
 	margin-bottom: 5px;
+	width: 85%;
 	font-size: 0.8em;
 	color: #995900;
 }
